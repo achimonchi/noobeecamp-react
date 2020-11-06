@@ -1,0 +1,33 @@
+.header{
+    background-color: #fcfcfc;
+}
+
+.nav-logo{
+    height: 50px;
+}
+
+.navbar{
+    background-color: #fcfcfc !important;
+}
+
+.icon-primary{
+    color:#12262F;
+}
+
+.bg-secondary{
+    background-color: #F05454 !important;
+}
+
+button.bg-secondary{
+    border:none;
+}
+
+.navbar{
+    border-radius: 0px 0px 10px 10px;
+    box-shadow: 0px 10px 20px -10px rgba(18, 38, 47, 0.2);
+}
+
+#header .navbar{
+    padding: 30px;
+    
+}
