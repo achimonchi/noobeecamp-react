@@ -25,12 +25,12 @@ const Icon = ({icon, className, size}) =>{
     return <FontAwesomeIcon className={className} size={size} icon={icon}/>
 }
 
-export default function Header(){
+export default function Header(props){
 
     const [isOpen, setIsOpen] = useState(false);
 
     const toggle = () => setIsOpen(!isOpen);
-    
+
     return(
         <section id="header">
             <Container>
@@ -40,12 +40,14 @@ export default function Header(){
                     <Collapse isOpen={isOpen} navbar>
                         <Nav className="ml-auto" style={{width:"80%"}}>
                             <NavItem style={{width:"100%"}}>
-                                <InputGroup>
-                                    <Input placeholder="Mau nongkrong dimana kamu hari ini?" />
-                                    <InputGroupAddon addonType="append">
-                                        <Button className="bg-secondary"> <Icon className="icon-white" size="lg" icon={faSearch} /> </Button>
-                                    </InputGroupAddon>
-                                </InputGroup>
+                                <form onSubmit={props.handleSubmit}>
+                                    <InputGroup>
+                                            <Input onChange={props.handleSearch} placeholder="Mau nongkrong dimana kamu hari ini?" />
+                                            <InputGroupAddon addonType="append">
+                                                <Button type="submit" className="bg-secondary"> <Icon className="icon-white" size="lg" icon={faSearch} /> </Button>
+                                            </InputGroupAddon>
+                                    </InputGroup>
+                                </form>
                             </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>

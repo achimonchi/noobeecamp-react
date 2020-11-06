@@ -9,16 +9,21 @@ import data from './../data';
 
 
 
-export default function Home(){
+export default function Home(props){
     const [cafes, setCafes] = useState([]);
     const [isLoading, setLoading] = useState(false);
-
+    
     useEffect(()=>{
-        setTimeout(()=>{
-            setCafes(data);
-        },2000);
-        setLoading(i=> !i);
-    }, [cafes]);
+        setCafes(data);
+        // setLoading(i=> !i);
+    }, []);
+    
+    useEffect(()=>{
+        const key = props.keyword;
+        const search = new RegExp(key, "ig");
+        const newCafes = data.filter((d)=>d.cafeName.search(search) !== -1);
+        setCafes(newCafes)
+    }, [props.keyword])
     return(
         <section id="content" className="mt-5">
             <Container>
